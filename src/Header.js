@@ -121,7 +121,7 @@ function Header() {
         <div className="header_menu">
           <ul className="header_menu_list">
             <NavLink
-              to="/about"
+              to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <li className="header_menu_list_item">
