@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #292929;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+ul{
+  list-style: none;
+}
+
+#root{
+  display: grid;
+  grid-template-areas: 
+  "header main";
+  grid-template-columns: 19rem 1fr;
+  gap: 0rem;
+}
+
+header{
+  grid-area: header;
+  /*position: fixed;*/
+}
+
+main{
+    grid-area: main;
+    margin-right: 20%;
+}
+
+.footer_data{
+  margin-top: 5rem;
+  font-weight: 500;
+  margin-left: 8%;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
