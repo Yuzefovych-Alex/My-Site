@@ -90,7 +90,7 @@
 }
 
 
-@media (max-width: 360px){
+@media (max-width: 512px){
     .details{
         margin-left: 3%;
     }

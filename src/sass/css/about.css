@@ -191,7 +191,7 @@
     }
 }
 
-@media (max-width: 360px){
+@media (max-width: 512px){
     .banner{
         margin-left: 3%;
         margin-right: 3%;

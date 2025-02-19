@@ -155,7 +155,7 @@
 }
 
 
-@media (max-width: 360px) {
+@media (max-width: 512px) {
     
     .header_menu_list_text{
         display: none;

@@ -68,7 +68,7 @@
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 512px) {
     .page_block {
         margin-top: 0rem;
     }
