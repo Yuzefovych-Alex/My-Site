@@ -2,19 +2,18 @@ import './css/App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Header from './Header';
 import Start from './Start';
-import Portfolio from './Porfolio';
+import Portfolio from './Portfolio';
 import Contact from './Contact';
 import Resume from './Resume';
 
 function App() {
   return (
-    <Router>
-      <Header />
+    <Router basename="/My-Site">
+      <Header/>
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/resume"element={<Resume />}/>
+        <Route path="/resume" element={<Resume />} />
       </Routes>
     </Router>
   );
