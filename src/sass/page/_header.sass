@@ -1,0 +1,150 @@
+$primary-color: #5271ff;
+$secondary-color: #4f4f4f;
+$border-color: #696969;
+$text-color: white;
+
+.header {
+    height: 100vh;
+    background-color: $secondary-color;
+    position: fixed;
+    
+    @media (max-width: 990px) {
+        height: 3.6rem;
+        position: static;
+    }
+}
+
+.header_retreat {
+    padding: 5rem 1.6rem 0;
+    
+    @media (max-width: 990px) {
+        padding-top: 0;
+    }
+}
+
+.header_photo {
+    width: 100%;
+    
+    @media (max-width: 990px) {
+        display: none;
+    }
+}
+
+.header_photo_profile {
+    margin: 0 auto;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.header_photo_profile_img {
+    width: 100%;
+}
+
+.header_name, .header_title {
+    text-align: center;
+    
+    @media (max-width: 990px) {
+        display: none;
+    }
+}
+
+.header_name {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.header_title {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.header_socialMedia {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: center;
+    gap: 0.1rem;
+    margin-top: 1.3rem;
+    
+    @media (max-width: 990px) {
+        display: none;
+    }
+}
+
+.header_socialMedia_edging {
+    padding: 0.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid $border-color;
+    border-radius: 50%;
+    margin: 0 0.2rem;
+    transition: background-color 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+        background-color: $primary-color;
+        
+        .header_socialMedia_link_svg {
+            fill: $text-color;
+            stroke: $text-color;
+        }
+    }
+}
+
+.header_menu {
+    margin-top: 1rem;
+    
+    @media (max-width: 990px) {
+        margin-top: 0;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.header_menu_list {
+    @media (max-width: 990px) {
+        display: flex;
+    }
+}
+
+.header_menu_list_item {
+    padding: 0.5rem 0.9rem;
+    margin: 0.7rem 0;
+    border-radius: 0.5rem;
+    transition: background-color 0.5s ease;
+    display: flex;
+    align-items: center;
+    
+    &:hover, &.active li {
+        background-color: $primary-color;
+    }
+    
+    @media (max-width: 990px) {
+        margin: 0 1rem;
+    }
+}
+
+.header_me {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: $primary-color;
+    width: 9rem;
+    border-radius: 3rem;
+    color: $text-color;
+    border: 1px solid $primary-color;
+    text-align: center;
+}
+
+.header_footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    
+    @media (max-width: 990px) {
+        display: none;
+    }
+}

@@ -1,18 +1,4 @@
-.page_block{
-    margin-top: 7rem;
-    text-align: center;
-}
 
-.page_title{
-    margin-top: 1rem;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.page_text{
-    font-size: 1.1rem;
-    font-weight: 400;
-}
 
 .section{
     border-bottom: solid 1px #3a3a3a;
@@ -45,7 +31,7 @@
 
 .details_phone, .details_location, .details_email{
     display: flex;
-    border-left: solid 1px #5271ff;
+    border-left: solid 2px #5271ff;
     padding-top: 1.4rem;
     padding-bottom: 1.4rem;
     padding-left: 1rem;
@@ -81,8 +67,61 @@
     border: solid 0px white;
 }
 
-.footer_data{
-    margin-left: 10%;
-    margin-top: 18rem;
-    
+@media (max-width: 990px){
+    .contaсt_nav_socialMedia{
+        display: block;
+    }
+
+    .details{
+        margin-right: 8%;
+    }
+
+    .maps{
+        width: 82%;
+    }
+}
+
+.contaсt_nav_socialMedia{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto; 
+    justify-content: center; 
+    gap: 0.1rem; 
+    margin-top: 1.3rem;
+}
+
+
+@media (max-width: 360px){
+    .details{
+        margin-left: 3%;
+    }
+
+    .details_title{
+        font-size: 2rem;
+    }
+
+    .details_navigation{
+        display: block;
+    }
+
+    .details_navigation_svg{
+        width: 2rem;
+    }
+
+    .details_navigation_title{
+        font-size: 1.2rem;
+    }
+
+    .details_navigation_text{
+        font-size: 0.6rem;
+    }
+
+    .details_phone, .details_location, .details_email{
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .maps{
+        margin-top: 2rem;
+    }
 }

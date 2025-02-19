@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #292929;
@@ -34,6 +36,14 @@ ul{
   gap: 0rem;
 }
 
+@media (max-width: 990px){
+  #root{
+    display: block;
+  }
+
+
+}
+
 header{
   grid-area: header;
   /*position: fixed;*/
@@ -42,6 +52,12 @@ header{
 main{
     grid-area: main;
     margin-right: 20%;
+}
+
+@media (max-width: 990px){
+  main{
+    margin-right: 0%;
+  }
 }
 
 .footer_data{

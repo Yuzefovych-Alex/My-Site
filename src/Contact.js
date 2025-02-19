@@ -1,26 +1,31 @@
-import React from "react";
-import "./css/Contact.css";
+import React, { Component } from "react";
+import "./sass/css/contact.css";
 
-function Contact() {
-  return (
-    <main>
+class Contact extends Component {
+  headerPage() {
+    return (
       <div className="page_block">
-        <h3 className="page_title">Contact</h3>
-        <p className="page_text">
+        <h3 className="page_block_title">Contact</h3>
+        <p className="page_block_text">
           Interested in hiring me for your project or just want to say hi? You
-          can fill in the contact form below or send me <br />
+          can fill in the contact form below or send me
           an email to evans@yourwebsite.com .Want to get connected? Follow me on
           the social channels below.
         </p>
       </div>
-      <div className="header_socialMedia">      
-        <div className="header_socialMedia_edging">
+    );
+  }
+
+  socialMedia() {
+    return (
+      <div className="contaсt_nav_socialMedia">
+        <div className="nav_socialMedia_edging">
           <a
-            className="header_socialMedia_link"
-            href="https://www.instagram.com/yuzefovych.alex/"
+            className="nav_socialMedia_link"
+            href="https://x.com/_ALEX_PASCAL_"
           >
             <svg
-              className="header_socialMedia_link_svg"
+              className="nav_socialMedia_link_svg"
               stroke="#5271ff"
               fill="#5271ff"
               stroke-width="0"
@@ -33,10 +38,13 @@ function Contact() {
             </svg>
           </a>
         </div>
-        <div className="header_socialMedia_edging">
-          <a className="header_socialMedia_link" href="">
+        <div className="nav_socialMedia_edging">
+          <a
+            className="nav_socialMedia_link"
+            href="https://www.instagram.com/yuzefovych.alex/"
+          >
             <svg
-              className="header_socialMedia_link_svg"
+              className="nav_socialMedia_link_svg"
               stroke="#5271ff"
               fill="#5271ff"
               stroke-width="0"
@@ -49,13 +57,13 @@ function Contact() {
             </svg>
           </a>
         </div>
-        <div className="header_socialMedia_edging">
+        <div className="nav_socialMedia_edging">
           <a
             className="header_socialMedia_link"
             href="https://www.linkedin.com/in/alex-yuzefovych-a3644b281/"
           >
             <svg
-              className="header_socialMedia_link_svg"
+              className="nav_socialMedia_link_svg"
               stroke="#5271ff"
               fill="#5271ff"
               stroke-width="0"
@@ -68,13 +76,13 @@ function Contact() {
             </svg>
           </a>
         </div>
-        <div className="header_socialMedia_edging">
+        <div className="nav_socialMedia_edging">
           <a
-            class="header_socialMedia_link"
+            class="nav_socialMedia_link"
             href="https://github.com/Yuzefovych-Alex"
           >
             <svg
-              className="header_socialMedia_link_svg"
+              className="nav_socialMedia_link_svg"
               stroke="#5271ff"
               fill="#5271ff"
               stroke-width="0"
@@ -87,13 +95,13 @@ function Contact() {
             </svg>
           </a>
         </div>
-        <div className="header_socialMedia_edging">
+        <div className="nav_socialMedia_edging">
           <a
-            class="header_socialMedia_link"
+            class="nav_socialMedia_link"
             href="https://github.com/Yuzefovych-Alex"
           >
             <svg
-              className="header_socialMedia_link_svg"
+              className="nav_socialMedia_link_svg"
               stroke="#5271ff"
               fill="#5271ff"
               stroke-width="0"
@@ -106,8 +114,31 @@ function Contact() {
             </svg>
           </a>
         </div>
+        <div className="nav_socialMedia_edging">
+          <a
+            className="nav_socialMedia_link"
+            href="https://x.com/_ALEX_PASCAL_"
+          >
+            <svg
+              className="nav_socialMedia_link_svg"
+              stroke="#5271ff"
+              fill="#5271ff"
+              stroke-width="0"
+              viewBox="0 0 256 256"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M164.44,121.34l-48-32A8,8,0,0,0,104,96v64a8,8,0,0,0,12.44,6.66l48-32a8,8,0,0,0,0-13.32ZM120,145.05V111l25.58,17ZM234.33,69.52a24,24,0,0,0-14.49-16.4C185.56,39.88,131,40,128,40s-57.56-.12-91.84,13.12a24,24,0,0,0-14.49,16.4C19.08,79.5,16,97.74,16,128s3.08,48.5,5.67,58.48a24,24,0,0,0,14.49,16.41C69,215.56,120.4,216,127.34,216h1.32c6.94,0,58.37-.44,91.18-13.11a24,24,0,0,0,14.49-16.41c2.59-10,5.67-28.22,5.67-58.48S236.92,79.5,234.33,69.52Zm-15.49,113a8,8,0,0,1-4.77,5.49c-31.65,12.22-85.48,12-86,12H128c-.54,0-54.33.2-86-12a8,8,0,0,1-4.77-5.49C34.8,173.39,32,156.57,32,128s2.8-45.39,5.16-54.47A8,8,0,0,1,41.93,68c30.52-11.79,81.66-12,85.85-12h.27c.54,0,54.38-.18,86,12a8,8,0,0,1,4.77,5.49C221.2,82.61,224,99.43,224,128S221.2,173.39,218.84,182.47Z"></path>
+            </svg>
+          </a>
+        </div>
       </div>
-      <div className="section"></div>
+    );
+  }
+
+  myDataDetails() {
+    return (
       <dir className="details">
         <h2 className="details_title">Contact Details</h2>
         <p className="details_text">
@@ -174,6 +205,11 @@ function Contact() {
           </div>
         </nav>
       </dir>
+    );
+  }
+
+  mapLoaction() {
+    return (
       <div className="maps">
         <iframe
           className="maps_me"
@@ -185,9 +221,29 @@ function Contact() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <footer className="footer_data">Copyright &copy; 2024 Portfolify. All rights reserved.</footer>
-    </main>
-  );
+    );
+  }
+
+  footerData() {
+    return (
+      <footer className="footer_data contact_footer_data">
+        Copyright &copy; 2024 Portfolify. All rights reserved.
+      </footer>
+    );
+  }
+
+  render() {
+    return (
+      <main>
+        {this.headerPage()}
+        {this.socialMedia()}
+        <div className="section"></div>
+        {this.myDataDetails()}
+        {this.mapLoaction()}
+        {this.footerData()}
+      </main>
+    );
+  }
 }
 
 export default Contact;

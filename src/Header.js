@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Comment, Component } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -6,16 +6,16 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
-import "./css/Header.css";
-import myPhoto from "./images/my-photo.jpg";
-import Start from "./Start";
+import "./sass/css/header.css";
+import About from "./About";
 import Contact from "./Contact";
-import Portfolio from "./Porfolio";
+import Portfolio from "./Portfolio";  
+import myPhoto from "./images/my-photo.jpg";
 
-function Header() {
-  return (
-    <header className="header">
-      <div className="header_retreat">
+class Header extends Component {
+  dataProfile() {
+    return (
+      <>
         <div className="header_photo">
           <div className="header_photo_profile">
             <img src={myPhoto} className="header_photo_profile_img" />
@@ -25,12 +25,18 @@ function Header() {
         <div className="header_title">
           <span className="header_title_span">Sofware Developer</span>
         </div>
+      </>
+    );
+  }
 
-        <div className="header_socialMedia">
-          <div className="header_socialMedia_edging">
-            <a className="header_socialMedia_link" href="">
+  socialMedia() {
+    return (
+      <>
+        <div className="nav_socialMedia">
+          <div className="nav_socialMedia_edging">
+            <a className="nav_socialMedia_link">
               <svg
-                className="header_socialMedia_link_svg"
+                className="nav_socialMedia_link_svg"
                 stroke="#5271ff"
                 fill="#5271ff"
                 stroke-width="0"
@@ -43,13 +49,13 @@ function Header() {
               </svg>
             </a>
           </div>
-          <div className="header_socialMedia_edging">
+          <div className="nav_socialMedia_edging">
             <a
-              className="header_socialMedia_link"
+              className="nav_socialMedia_link"
               href="https://www.instagram.com/yuzefovych.alex/"
             >
               <svg
-                className="header_socialMedia_link_svg"
+                className="nav_socialMedia_link_svg"
                 stroke="#5271ff"
                 fill="#5271ff"
                 stroke-width="0"
@@ -62,10 +68,10 @@ function Header() {
               </svg>
             </a>
           </div>
-          <div className="header_socialMedia_edging">
-            <a className="header_socialMedia_link" href="">
+          <div className="nav_socialMedia_edging">
+            <a className="nav_socialMedia_link">
               <svg
-                className="header_socialMedia_link_svg"
+                className="nav_socialMedia_link_svg"
                 stroke="#5271ff"
                 fill="#5271ff"
                 stroke-width="0"
@@ -78,13 +84,13 @@ function Header() {
               </svg>
             </a>
           </div>
-          <div className="header_socialMedia_edging">
+          <div className="nav_socialMedia_edging">
             <a
-              className="header_socialMedia_link"
+              className="nav_socialMedia_link"
               href="https://www.linkedin.com/in/alex-yuzefovych-a3644b281/"
             >
               <svg
-                className="header_socialMedia_link_svg"
+                className="nav_socialMedia_link_svg"
                 stroke="#5271ff"
                 fill="#5271ff"
                 stroke-width="0"
@@ -97,13 +103,13 @@ function Header() {
               </svg>
             </a>
           </div>
-          <div className="header_socialMedia_edging">
+          <div className="nav_socialMedia_edging">
             <a
-              class="header_socialMedia_link"
+              class="nav_socialMedia_link"
               href="https://github.com/Yuzefovych-Alex"
             >
               <svg
-                className="header_socialMedia_link_svg"
+                className="nav_socialMedia_link_svg"
                 stroke="#5271ff"
                 fill="#5271ff"
                 stroke-width="0"
@@ -117,11 +123,18 @@ function Header() {
             </a>
           </div>
         </div>
-        <div className="header_section"></div>
+      </>
+    );
+  }
+
+  taskMenu() {
+    return (
+      <>
         <div className="header_menu">
           <ul className="header_menu_list">
             <NavLink
               to="/"
+              end
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <li className="header_menu_list_item">
@@ -137,7 +150,7 @@ function Header() {
                 >
                   <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
                 </svg>
-                About Us
+                <span className="header_menu_list_text">About Us</span>
               </li>
             </NavLink>
             <NavLink
@@ -157,7 +170,7 @@ function Header() {
                 >
                   <path d="M58.34,101.66l-32-32a8,8,0,0,1,0-11.32l32-32A8,8,0,0,1,69.66,37.66L43.31,64,69.66,90.34a8,8,0,0,1-11.32,11.32Zm40,0a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0,0-11.32l-32-32A8,8,0,0,0,98.34,37.66L124.69,64,98.34,90.34A8,8,0,0,0,98.34,101.66ZM200,40H176a8,8,0,0,0,0,16h24V200H56V136a8,8,0,0,0-16,0v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Z"></path>
                 </svg>
-                Portfolio
+                <span className="header_menu_list_text">Portfolio</span>
               </li>
             </NavLink>
             <NavLink
@@ -177,7 +190,7 @@ function Header() {
                 >
                   <path d="M184,112a8,8,0,0,1-8,8H112a8,8,0,0,1,0-16h64A8,8,0,0,1,184,112Zm-8,24H112a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm48-88V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H72V48H48Zm160,0V48H88V208H208Z"></path>
                 </svg>
-                Resume
+                <span className="header_menu_list_text">Resume</span>
               </li>
             </NavLink>
             <NavLink
@@ -197,12 +210,17 @@ function Header() {
                 >
                   <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path>
                 </svg>
-                Contact
+                <span className="header_menu_list_text">Contact</span>
               </li>
             </NavLink>
           </ul>
         </div>
-      </div>
+      </>
+    );
+  }
+
+  footerButtonContact(){
+    return(
       <footer className="header_footer">
         <div className="header_footer_intermediate">
           <Link to="/contact">
@@ -228,8 +246,22 @@ function Header() {
           </Link>
         </div>
       </footer>
+    );
+  }
+
+  render() {
+    return (
+    <header className="header">
+      <div className="header_retreat">
+        {this.dataProfile()}
+        {this.socialMedia()}
+        <div className="header_section"></div>
+        {this.taskMenu()}
+      </div>
+      {this.footerButtonContact()}
     </header>
-  );
+    );
+  }
 }
 
 export default Header;

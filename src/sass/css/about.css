@@ -180,3 +180,42 @@
     font-size: 1rem;
     font-weight: 400;
 }
+
+@media (max-width: 990px){
+    .structure_content_img_box{
+        margin-top: 5rem;
+    }
+
+    .structure_content{
+        display: inline;
+    }
+}
+
+@media (max-width: 360px){
+    .banner{
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 1rem;
+    }
+
+    .banner_title{
+        font-size: 3.5rem;
+    }
+
+    .button_switch{
+        margin-left: 0%;
+    }
+
+    .button_portfolio, .button_resume{
+        font-size: 0.7rem;
+    }
+
+    .button_resume_img{
+        width: 0.7rem;
+        top: 0.1rem;
+    }
+
+    .button_portfolio_svg{
+        top: 0.1rem;
+    }
+}

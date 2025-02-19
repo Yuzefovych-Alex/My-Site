@@ -1,21 +1,22 @@
-import React from "react";
-import "./css/Start.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import React, { Component } from "react";
+import "./sass/css/about.css";
+import { Link } from "react-router-dom";
+
 import imageResume from "./images/resume-icon.webp";
 import imageMy from "./images/my-photo.jpg";
 import imageJS from "./images/js.webp";
 
-function Start() {
-  return (
-    <main>
+class About extends Component {
+  structureContent() {
+    return (
       <div className="structure_content">
         <div>
           <div className="banner">
             <span className="banner_text">HI, I'M A FREELANCER</span>
             <h2 className="banner_title">Developer</h2>
             <p className="banner_discription">
-              I'm a software engineer specializing in scalable web apps.
-              <br /> Explore my blog, project portfolio and online resume.
+              I'm a software engineer specializing in scalable web apps. Explore
+              my blog, project portfolio and online resume.
             </p>
           </div>
           <div className="button_switch">
@@ -26,7 +27,7 @@ function Start() {
                     className="button_portfolio_svg"
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 256 256"
                     height="1.1em"
                     width="1.1em"
@@ -53,6 +54,11 @@ function Start() {
           <img className="structure_content_img" src={imageMy} />
         </div>
       </div>
+    );
+  }
+
+  statistic(){
+    return (
       <div className="statistics">
         <div className="statistics_data">
           <h2 className="statistics_data_title">
@@ -83,7 +89,11 @@ function Start() {
           </span>
         </div>
       </div>
-      <div className="section"></div>
+    );
+  }
+
+  knowledge(){
+    return (
       <div className="knowledge">
         <div className="knowledge_title">
           <h2>What I do</h2>
@@ -93,13 +103,17 @@ function Start() {
           over the world. Below is a <br />
           quick overview of my main technical skill sets and technologies I use.
           Want to find out more
-          <br /> about my experience? Check out my online resume andproject
+          <br /> about my experience? Check out my online resume and project
           portfolio.
         </p>
         <nav></nav>
       </div>
+    );
+  }
 
-      <div className="skills">
+  skills(){
+    return (
+<div className="skills">
         <div className="skills_block">
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
@@ -136,11 +150,28 @@ function Start() {
         </div>
       </div>
 
+    );
+  }
+
+  footerData(){
+    return (
       <footer className="footer_data">
         Copyright &copy; 2024 Portfolify. All rights reserved.
       </footer>
-    </main>
-  );
+    );
+  }
+
+  render() {
+    return(
+       <main>
+        {this.structureContent()}
+        {this.statistic()}
+        {this.knowledge()}
+        <div className="section"></div>
+        {this.skills()}
+        {this.footerData()}
+    </main>);
+  }
 }
 
-export default Start;
+export default About;

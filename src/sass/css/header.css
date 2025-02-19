@@ -1,0 +1,167 @@
+/* Загальні стилі для хедера */
+.header {
+    height: 100vh;
+    background-color: #4f4f4f;
+    position: fixed;
+}
+
+.header_retreat {
+    padding: 5rem 1.6rem 0;
+}
+
+/* Фото профілю */
+.header_photo {
+    width: 100%;
+}
+
+.header_photo_profile {
+    margin: 0 auto;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.header_photo_profile_img {
+    width: 100%;
+}
+
+/* Ім'я та посада */
+.header_name, .header_title {
+    text-align: center;
+}
+
+.header_name {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.header_title {
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 100%;
+}
+
+.header_section {
+    margin: 2rem 0 2.3rem;
+    border-bottom: 1px solid white;
+}
+
+/* Меню */
+.header_menu {
+    margin-top: 1rem;
+}
+
+.header_menu_list_item {
+    padding: 0.5rem 0.9rem;
+    margin: 0.7rem 0;
+    border-radius: 0.5rem;
+    transition: background-color 0.5s ease;
+}
+
+.header_menu_list_item:hover, .active li {
+    background-color: #5271ff;
+}
+
+.header_menu_list_item_svg {
+    position: relative;
+    top: 0.1rem;
+    margin: 0 0.5rem 0 0.2rem;
+}
+
+/* Соціальні мережі */
+.header_socialMedia_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* Кнопка "Про мене" */
+.header_me {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: #5271ff;
+    width: 9rem;
+    border-radius: 3rem;
+    color: white;
+    border: 1px solid #5271ff;
+}
+
+.header_me_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.header_me_center-svg {
+    position: relative;
+    top: 0.3rem;
+}
+
+/* Футер */
+.header_footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.header_footer_intermediate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Адаптивність */
+@media (max-width: 990px) {
+    .header {
+        height: 2.6rem;
+        position: static;
+    }
+
+    .header_photo,
+    .header_name,
+    .header_title,
+    .header_section,
+    .header_footer {
+        display: none;
+    }
+
+    .header_menu {
+        margin-top: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    .header_menu_list {
+        display: flex;
+    }
+
+    .header_menu_list_item {
+        margin: 0rem;
+    }
+
+    .header_retreat {
+        padding-top: 0;
+    }
+
+    .header_menu_list_item{
+        border-radius: 0rem 0rem 0.5rem 0.5rem;
+    }
+}
+
+
+@media (max-width: 360px) {
+    
+    .header_menu_list_text{
+        display: none;
+    }
+
+    .header_menu_list_item{
+        border-radius: 0rem 0rem 1.2rem 1.2rem;
+    }   
+}

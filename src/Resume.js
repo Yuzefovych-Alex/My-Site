@@ -1,12 +1,20 @@
-import React from "react";
-import "./css/Resume.css";
+import React, {Component} from "react";
+import "./sass/css/resume.css";
 
-function Resume() {
-  return (
-    <main>
-      <div className="resume_header">
-        <h3 className="resume_header_title">Online Resume</h3>
-        <button className="resume_header_button">
+class Resume extends Component{
+  headerPage() {
+    return (
+      <div className="page_block">
+        <h3 className="page_block_title">Resume Online</h3>
+        <p className="page_block_text">
+        </p> 
+      </div>
+    );
+  }
+
+  buttonDownloadResume(){
+    return (
+      <button className="resume_header_button">
           <svg className="resume_header_button_svg"
             stroke="currentColor"
             fill="currentColor"
@@ -20,10 +28,19 @@ function Resume() {
           </svg>
           Download PDF Version
         </button>
-      </div>
-      <div className="section"></div>
-    </main>
-  );
+    );
+  }
+
+  render(){
+    return (
+      <main>
+        {this.headerPage()}
+        {this.buttonDownloadResume()}
+        <div className="section"></div>
+      </main>
+    );
+  }
 }
+
 
 export default Resume;
