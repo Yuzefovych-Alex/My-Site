@@ -1,24 +1,24 @@
-.page_header{
+.page_header {
     text-align: center;
     margin-top: 5rem;
 }
 
-.page_header_title{
+.page_header_title {
     font-size: 2rem;
     font-weight: 700;
 }
 
-.page_header_text{
+.page_header_text {
     margin-top: 0.8rem;
     font-size: 1.2rem;
     font-weight: 400;
 }
 
-.section{
+.section {
     border-top: solid 1px #3a3a3a;
 }
 
-.category_button{
+.category_button {
     font-size: 1.2rem;
     font-weight: 600;
     color: #8e8f8f;
@@ -28,25 +28,41 @@
     margin-right: 0.6rem;
 }
 
-.category{
+.category {
     margin-top: 2rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.button{
+.category.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button {
     margin-top: 2.5rem;
     margin-bottom: 4rem;
     display: flex;
     justify-content: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.button_intermediate{
+.button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button_intermediate {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.button_me{
+.button_me {
     font-size: 1.2rem;
     font-weight: 600;
     padding-left: 1rem;
@@ -57,11 +73,11 @@
     width: 7rem;
     border-radius: 3rem;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
-.button_me_center{
+.button_me_center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +85,7 @@
     gap: 0.5rem;
 }
 
-.button_me_center-svg{
+.button_me_center-svg {
     position: relative;
     top: 0.3rem;
 }

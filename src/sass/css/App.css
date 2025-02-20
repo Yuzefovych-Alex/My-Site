@@ -1,6 +1,14 @@
 .page_block {
     margin-top: 7rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.page_block.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .page_block_title {
@@ -91,5 +99,5 @@
         margin-right: 2%;
     }
 
-   
+
 }

@@ -1,11 +1,50 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./sass/css/portfolio.css";
 
 class Portfolio extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleSections: {},
+    };
+
+    this.sectionsRefs = {
+      page_block: createRef(),
+      button: createRef(),
+      category: createRef(),
+    };
+  }
+
+  componentDidMount() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const newVisibility = { ...this.state.visibleSections };
+
+        entries.forEach((entry) => {
+          const section = entry.target.dataset.section;
+          newVisibility[section] = entry.isIntersecting;
+        });
+
+        this.setState({ visibleSections: newVisibility });
+      },
+      { threshold: 0.5 }
+    );
+
+    Object.values(this.sectionsRefs).forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+  }
+
   headerPage() {
     return (
-      <div className="page_block">
+      <div
+        className={`page_block ${
+          this.state.visibleSections.page_block ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.page_block}
+        data-section="page_block"
+      >
         <h3 className="page_block_title">A collection of my best projects</h3>
         <p className="page_block_text">
           With many years in web development, I acquired extensive experience
@@ -18,7 +57,11 @@ class Portfolio extends Component {
 
   buttonMyContact() {
     return (
-      <div className="button">
+      <div
+        className={`button ${this.state.visibleSections.button ? "show" : ""}`}
+        ref={this.sectionsRefs.button}
+        data-section="button"
+      >
         <div className="button_intermediate">
           <div className="button_me">
             <Link to="/contact">
@@ -46,7 +89,13 @@ class Portfolio extends Component {
 
   categoryProject() {
     return (
-      <div className="category">
+      <div
+        className={`category  ${
+          this.state.visibleSections.category ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.category}
+        data-section="category"
+      >
         <button className="category_button">All</button>
         <button className="category_button">Web App</button>
         <button className="category_button">Mobile App</button>

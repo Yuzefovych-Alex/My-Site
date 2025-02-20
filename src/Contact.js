@@ -9,8 +9,8 @@ class Contact extends Component {
     };
 
     this.sectionsRefs = {
-      pageBlock: createRef(),
-      socialMedia: createRef(),
+      page_block: createRef(),
+      contaсt_nav_socialMedia: createRef(),
       details: createRef(),
       maps: createRef(),
     };
@@ -40,9 +40,9 @@ class Contact extends Component {
     return (
       <div
         className={`page_block ${
-          this.state.visibleSections.pageBlock ? "show" : ""
+          this.state.visibleSections.page_block ? "show" : ""
         }`}
-        ref={this.sectionsRefs.pageBlock}
+        ref={this.sectionsRefs.page_block}
         data-section="page_block"
       >
         <h3 className="page_block_title">Contact</h3>
@@ -61,9 +61,9 @@ class Contact extends Component {
     return (
       <div
         className={`contaсt_nav_socialMedia  ${
-          this.state.visibleSections.socialMedia ? "show" : ""
+          this.state.visibleSections.contaсt_nav_socialMedia ? "show" : ""
         }`}
-        ref={this.sectionsRefs.socialMedia}
+        ref={this.sectionsRefs.contaсt_nav_socialMedia}
         data-section="contaсt_nav_socialMedia"
       >
         <div className="nav_socialMedia_edging">
