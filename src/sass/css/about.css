@@ -218,4 +218,29 @@
     .button_portfolio_svg{
         top: 0.1rem;
     }
+
+    .statistics{
+        display: block;
+    }
+
+    .skills{
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .structure_content_box{
+        top: 24rem;
+        left: 0;
+    }
+
+    .structure_content_img_box{
+        display: block;
+    }
+
+    .structure_content_img_box {
+        margin-top: -20rem;
+        margin-left: 10%;
+        margin-bottom: 1rem;
+    }
 }
