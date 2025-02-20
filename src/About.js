@@ -1,13 +1,73 @@
-import React, { Component } from "react";
-import { useState, useEffect } from "react";
+import React, { Component, createRef, useState, useEffect } from "react";
 import "./sass/css/about.css";
 import { Link } from "react-router-dom";
-
 import imageResume from "./images/resume-icon.webp";
 import imageMy from "./images/my-photo.jpg";
 import imageJS from "./images/js.webp";
 
+function TypingEffectButton() {
+  const words = ["#Developer", "#Engineer"];
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+      const timeout = setTimeout(() => {
+          if (deleting) {
+              if (text.length > 1) {
+                  setText((prev) => prev.slice(0, -1));
+              } else {
+                  setDeleting(false);
+                  setIndex((prev) => (prev + 1) % words.length);
+              }
+          } else {
+              if (text.length < words[index].length) {
+                  setText(words[index].slice(0, text.length + 1));
+              } else {
+                  setTimeout(() => setDeleting(true), 1000);
+              }
+          }
+      }, 100);
+
+      return () => clearTimeout(timeout);
+  }, [text, deleting, index]);
+
+  return <>{text}</>;
+}
+
+
 class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleSections: {},
+    };
+
+    this.sectionsRefs = {
+      knowledge: createRef(),
+      skills: createRef()
+    };
+  }
+
+  componentDidMount() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const newVisibility = { ...this.state.visibleSections };
+
+        entries.forEach((entry) => {
+          const section = entry.target.dataset.section;
+          newVisibility[section] = entry.isIntersecting; 
+        });
+
+        this.setState({ visibleSections: newVisibility });
+      },
+      { threshold: 0.5 }
+    );
+
+    Object.values(this.sectionsRefs).forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+  }
 
   structureContent() {
     return (
@@ -15,7 +75,7 @@ class About extends Component {
         <div>
           <div className="banner">
             <span className="banner_text">HI, I'M A FREELANCER</span>
-            <h2 className="banner_title">Developer</h2>
+            <h2 className="banner_title"><span className="text"><TypingEffectButton/></span></h2>
             <p className="banner_discription">
               I'm a software engineer specializing in scalable web apps. Explore
               my blog, project portfolio and online resume.
@@ -59,7 +119,7 @@ class About extends Component {
     );
   }
 
-  statistic(){
+  statistic() {
     return (
       <div className="statistics">
         <div className="statistics_data">
@@ -94,9 +154,15 @@ class About extends Component {
     );
   }
 
-  knowledge(){
+  knowledge() {
     return (
-      <div className="knowledge">
+      <div
+        className={`knowledge ${
+          this.state.visibleSections.knowledge ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.knowledge}
+        data-section="knowledge"
+      >
         <div className="knowledge_title">
           <h2>What I do</h2>
         </div>
@@ -113,9 +179,13 @@ class About extends Component {
     );
   }
 
-  skills(){
+  skills() {
     return (
-<div className="skills">
+      <div
+      className={`skills ${this.state.visibleSections.skills ? "show" : ""}`}
+      ref={this.sectionsRefs.skills}
+      data-section="skills"
+      >
         <div className="skills_block">
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
@@ -151,11 +221,10 @@ class About extends Component {
           </p>
         </div>
       </div>
-
     );
   }
 
-  footerData(){
+  footerData() {
     return (
       <footer className="footer_data">
         Copyright &copy; 2024 Portfolify. All rights reserved.
@@ -164,15 +233,16 @@ class About extends Component {
   }
 
   render() {
-    return(
-       <main>
+    return (
+      <main>
         {this.structureContent()}
         {this.statistic()}
         <div className="section"></div>
         {this.knowledge()}
         {this.skills()}
         {this.footerData()}
-    </main>);
+      </main>
+    );
   }
 }
 

@@ -53,6 +53,11 @@
     margin-bottom: 1rem;
 }
 
+.text{
+    padding-right: 0.4rem;
+    border-right: solid 0.5rem #5271ff;
+}
+
 .banenr_discription {
     font-weight: 400;
     font-size: 1.1rem;
@@ -114,7 +119,14 @@
 .knowledge {
     margin-top: 5rem;
     margin-left: 8%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
 
+.knowledge.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .knowledge_title {
@@ -179,6 +191,14 @@
     margin-left: 8%;
     gap: 1.5rem;
     margin-top: 5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.skills.show{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .skills_block {

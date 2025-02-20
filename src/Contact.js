@@ -1,14 +1,55 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import "./sass/css/contact.css";
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleSections: {},
+    };
+
+    this.sectionsRefs = {
+      pageBlock: createRef(),
+      socialMedia: createRef(),
+      details: createRef(),
+      maps: createRef(),
+    };
+  }
+
+  componentDidMount() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const newVisibility = { ...this.state.visibleSections };
+
+        entries.forEach((entry) => {
+          const section = entry.target.dataset.section;
+          newVisibility[section] = entry.isIntersecting;
+        });
+
+        this.setState({ visibleSections: newVisibility });
+      },
+      { threshold: 0.5 }
+    );
+
+    Object.values(this.sectionsRefs).forEach((ref) => {
+      if (ref.current) observer.observe(ref.current);
+    });
+  }
+
   headerPage() {
     return (
-      <div className="page_block">
+      <div
+        className={`page_block ${
+          this.state.visibleSections.pageBlock ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.pageBlock}
+        data-section="page_block"
+      >
         <h3 className="page_block_title">Contact</h3>
         <p className="page_block_text">
           Interested in hiring me for your project or just want to say hi? You
-          can fill in the contact form below or send me<br/>
+          can fill in the contact form below or send me
+          <br />
           an email to evans@yourwebsite.com .Want to get connected? Follow me on
           the social channels below.
         </p>
@@ -18,7 +59,13 @@ class Contact extends Component {
 
   socialMedia() {
     return (
-      <div className="contaсt_nav_socialMedia">
+      <div
+        className={`contaсt_nav_socialMedia  ${
+          this.state.visibleSections.socialMedia ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.socialMedia}
+        data-section="contaсt_nav_socialMedia"
+      >
         <div className="nav_socialMedia_edging">
           <a
             className="nav_socialMedia_link"
@@ -139,7 +186,13 @@ class Contact extends Component {
 
   myDataDetails() {
     return (
-      <dir className="details">
+      <dir
+        className={`details ${
+          this.state.visibleSections.details ? "show" : ""
+        }`}
+        ref={this.sectionsRefs.details}
+        data-section="details"
+      >
         <h2 className="details_title">Contact Details</h2>
         <p className="details_text">
           If you are going to use a passage of Lorem Ipsum, you need to be sure
@@ -210,7 +263,11 @@ class Contact extends Component {
 
   mapLoaction() {
     return (
-      <div className="maps">
+      <div
+        className={`maps ${this.state.visibleSections.maps ? "show" : ""}`}
+        ref={this.sectionsRefs.maps}
+        data-section="maps"
+      >
         <iframe
           className="maps_me"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210453.85086805013!2d21.074387611700747!3d48.69752394344597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ee01b67c6957b%3A0x400f7d1c6978bd0!2z0JrQvtGI0LjRhtC1LCDQodC70L7QstCw0LrQuNGP!5e1!3m2!1sru!2sus!4v1739809955033!5m2!1sru!2sus"
