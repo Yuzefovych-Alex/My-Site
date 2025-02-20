@@ -8,7 +8,7 @@ class Contact extends Component {
         <h3 className="page_block_title">Contact</h3>
         <p className="page_block_text">
           Interested in hiring me for your project or just want to say hi? You
-          can fill in the contact form below or send me
+          can fill in the contact form below or send me<br/>
           an email to evans@yourwebsite.com .Want to get connected? Follow me on
           the social channels below.
         </p>

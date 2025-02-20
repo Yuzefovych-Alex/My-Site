@@ -27,7 +27,8 @@
 }
 
 /* Ім'я та посада */
-.header_name, .header_title {
+.header_name,
+.header_title {
     text-align: center;
 }
 
@@ -59,7 +60,8 @@
     transition: background-color 0.5s ease;
 }
 
-.header_menu_list_item:hover, .active li {
+.header_menu_list_item:hover,
+.active li {
     background-color: #5271ff;
 }
 
@@ -103,9 +105,9 @@
     top: 0.3rem;
 }
 
-/* Футер */
+
 .header_footer {
-    margin-top: auto;
+    margin-top: 100%;
     display: flex;
     justify-content: center;
 }
@@ -149,22 +151,23 @@
         padding-top: 0;
     }
 
-    .header_menu_list_item{
+    .header_menu_list_item {
         border-radius: 0rem 0rem 0.5rem 0.5rem;
     }
 }
 
 
 @media (max-width: 512px) {
-    
-    .header_menu_list_text{
+
+    .header_menu_list_text {
         display: none;
     }
 
-    .header_menu_list_item{
+    .header_menu_list_item {
         border-radius: 0rem 0rem 1.2rem 1.2rem;
-    }   
+    }
 
-   
+
 
 }
+

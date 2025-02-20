@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import "./sass/css/about.css";
 import { Link } from "react-router-dom";
 
@@ -7,6 +8,7 @@ import imageMy from "./images/my-photo.jpg";
 import imageJS from "./images/js.webp";
 
 class About extends Component {
+
   structureContent() {
     return (
       <div className="structure_content">
@@ -166,8 +168,8 @@ class About extends Component {
        <main>
         {this.structureContent()}
         {this.statistic()}
-        {this.knowledge()}
         <div className="section"></div>
+        {this.knowledge()}
         {this.skills()}
         {this.footerData()}
     </main>);
