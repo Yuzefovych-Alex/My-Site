@@ -190,7 +190,7 @@
     grid-template-columns: repeat(4, 1fr);
     margin-left: 8%;
     gap: 1.5rem;
-    margin-top: 5rem;
+    margin-top: 8rem;
 }
 
 .skills_block_1,
@@ -273,6 +273,12 @@
     }
 }
 
+@media (max-width: 1592px){
+    .structure_content_img_box{
+      margin-left: -8rem;
+    }
+  }
+
 @media (max-width: 1585px) {
     .button_switch {
         margin-left: 10%;
@@ -311,7 +317,7 @@
 
 @media (max-width: 990px) {
     .structure_content_img_box {
-        margin-top: 5rem;
+        margin-top: -20rem;
     }
 
     .structure_content {
@@ -320,6 +326,11 @@
 
     .skills {
         margin-right: 8%;
+    }
+
+    .page_block_text{
+        margin-left: 3%;
+        margin-right: 3%;
     }
 }
 

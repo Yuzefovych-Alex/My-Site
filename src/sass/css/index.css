@@ -54,6 +54,12 @@ main{
     margin-right: 20%;
 }
 
+@media (max-width: 1592px){
+  main{
+    margin-right: 10%;
+  }
+}
+
 @media (max-width: 990px){
   main{
     margin-right: 0%;
@@ -67,3 +73,4 @@ main{
   font-weight: 600;
   padding-bottom: 1rem;
 }
+

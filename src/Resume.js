@@ -180,13 +180,22 @@ class Resume extends Component {
     );
   }
 
+  footerData() {
+    return (
+      <footer className="footer_data resume_footer_data">
+        Copyright &copy; 2024 Portfolify. All rights reserved.
+      </footer>
+    );
+  }
+
   render() {
     return (
       <main>
         {this.headerPage()}
         {this.buttonDownloadResume()}
         <div className="section"></div>
-        {this.resumeData()}
+        {/*this.resumeData()*/}
+        
       </main>
     );
   }
