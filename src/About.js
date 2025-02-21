@@ -63,7 +63,7 @@ class About extends Component {
         });
         this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     Object.entries(this.sectionsRefs).forEach(([key, ref]) => {
