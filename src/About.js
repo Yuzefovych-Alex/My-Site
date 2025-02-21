@@ -220,13 +220,53 @@ class About extends Component {
             HTML5, Sass, and Bootstrap 5.
           </p>
         </div>
+        <div className="skills_block">
+          <img className="skills_block_img" src={imageJS} />
+          <h4 className="skills_block_title">Vanilla JavaScript</h4>
+          <p className="skills_block_text">
+            List skills and technologies
+            <br /> here. Customize as needed.
+            <br /> Built on HTML5, Sass, and
+            <br /> Bootstrap 5.
+          </p>
+        </div>
+        <div className="skills_block">
+          <img className="skills_block_img" src={imageJS} />
+          <h4 className="skills_block_title">Vanilla JavaScript</h4>
+          <p className="skills_block_text">
+            List skills and technologies
+            <br /> here. Customize as needed.
+            <br /> Built on HTML5, Sass, and
+            <br /> Bootstrap 5.
+          </p>
+        </div>
+        <div className="skills_block">
+          <img className="skills_block_img" src={imageJS} />
+          <h4 className="skills_block_title">Vanilla JavaScript</h4>
+          <p className="skills_block_text">
+            List skills and technologies
+            <br /> here. Customize as needed.
+            <br /> Built on HTML5, Sass, and
+            <br /> Bootstrap 5.
+          </p>
+        </div>
+        <div className="skills_block">
+          <img className="skills_block_img" src={imageJS} />
+          <h4 className="skills_block_title">Vanilla JavaScript</h4>
+          <p className="skills_block_text">
+            List skills and technologies
+            <br /> here. Customize as needed.
+            <br /> Built on HTML5, Sass, and
+            <br /> Bootstrap 5.
+          </p>
+        </div>
       </div>
     );
   }
 
   footerData() {
     return (
-      <footer className="footer_data">
+      <footer className="footer_data about_footer_data">
         Copyright &copy; 2024 Portfolify. All rights reserved.
       </footer>
     );

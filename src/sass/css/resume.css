@@ -9,33 +9,82 @@
     text-align: center;
 }
 
-.resume_header_button{
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 15rem;
-    color: white;
-    background-color: #5271ff;
-    border: solid 1px #5271ff;
-    font-size: 1.1rem;
-    font-weight: 500;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  }
-  
-  .resume_header_button.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.resume_header_button {
+  padding: 1rem 1.2rem;
+  border-radius: 15rem;
+  color: white;
+  background-color: #5271ff;
+  border: solid 1px #5271ff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  margin: 1rem auto 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+.resume_header_button.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.resume_header_button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background: #000000;
+  z-index: -1;
+  transition: height 0.6s ease-in-out;
+}
+.resume_header_button:hover {
+    border: solid 1px #000000;
+}
+.resume_header_button:hover::before {
+  height: 100%;
+}
 
 .resume_header_button_svg{
     position: relative;
     top: 0.1rem;
     margin-right: 0.5rem;
+}
+
+.resume_data{
+  background-color: #4f4f4f;
+  padding: 5rem !important;
+  border-radius: 2.5rem;
+  margin: 1rem;
+}
+
+.resume_data_header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
+}
+
+.resume_data_header_identification_title{
+  color: #5271ff;
+  font-size: 4rem;
+  font-weight: 600 !important;
+}
+
+.resume_data_header_identification_text{
+  font-size: 1.3rem;
+  font-weight: 500 !important;
+}
+
+.resume_data_section{
+  border-bottom: solid 1px #5d5d5d;
+}
+
+.resume_data_experiencesSkills_title{
+  font-size: 2rem;
+  font-weight: 600 !important;
+  color: #5271ff;
+  padding-left: 0.5rem;
+  border-left: solid 3px #5271ff;
 }
