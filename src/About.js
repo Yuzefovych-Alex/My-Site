@@ -12,29 +12,28 @@ function TypingEffectButton() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-      const timeout = setTimeout(() => {
-          if (deleting) {
-              if (text.length > 1) {
-                  setText((prev) => prev.slice(0, -1));
-              } else {
-                  setDeleting(false);
-                  setIndex((prev) => (prev + 1) % words.length);
-              }
-          } else {
-              if (text.length < words[index].length) {
-                  setText(words[index].slice(0, text.length + 1));
-              } else {
-                  setTimeout(() => setDeleting(true), 1000);
-              }
-          }
-      }, 100);
+    const timeout = setTimeout(() => {
+      if (deleting) {
+        if (text.length > 1) {
+          setText((prev) => prev.slice(0, -1));
+        } else {
+          setDeleting(false);
+          setIndex((prev) => (prev + 1) % words.length);
+        }
+      } else {
+        if (text.length < words[index].length) {
+          setText(words[index].slice(0, text.length + 1));
+        } else {
+          setTimeout(() => setDeleting(true), 1000);
+        }
+      }
+    }, 100);
 
-      return () => clearTimeout(timeout);
+    return () => clearTimeout(timeout);
   }, [text, deleting, index]);
 
   return <>{text}</>;
 }
-
 
 class About extends Component {
   constructor(props) {
@@ -45,33 +44,53 @@ class About extends Component {
 
     this.sectionsRefs = {
       knowledge: createRef(),
-      skills: createRef()
+      skills_block_1: createRef(),
+      skills_block_2: createRef(),
+      skills_block_3: createRef(),
+      skills_block_4: createRef(),
+      skills_block_5: createRef(),
+      skills_block_6: createRef(),
+      skills_block_7: createRef(),
+      skills_block_8: createRef(),
     };
   }
 
   componentDidMount() {
     this.observer = new IntersectionObserver(
       (entries) => {
-        const newVisibility = { ...this.state.visibleSections };
-        entries.forEach((entry) => {
-          const section = entry.target.dataset.section;
-          if (entry.isIntersecting) {
-            newVisibility[section] = true;
-          } else {
-            newVisibility[section] = false;
+        requestAnimationFrame(() => {
+          const newVisibility = { ...this.state.visibleSections };
+          let hasChanges = false;
+
+          entries.forEach((entry) => {
+            const section = entry.target.id || entry.target.dataset.section; 
+            if (section && newVisibility[section] !== entry.isIntersecting) {
+              newVisibility[section] = entry.isIntersecting;
+              hasChanges = true;
+            }
+          });
+
+          if (hasChanges) {
+            this.setState({ visibleSections: newVisibility });
           }
         });
-        this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     Object.entries(this.sectionsRefs).forEach(([key, ref]) => {
       if (ref.current) {
-        ref.current.dataset.section = key;
+        ref.current.id = key;
+        ref.current.dataset.section = key; 
         this.observer.observe(ref.current);
       }
     });
+  }
+
+  componentWillUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   structureContent() {
@@ -80,7 +99,11 @@ class About extends Component {
         <div>
           <div className="banner">
             <span className="banner_text">HI, I'M A FREELANCER</span>
-            <h2 className="banner_title"><span className="text"><TypingEffectButton/></span></h2>
+            <h2 className="banner_title">
+              <span className="text">
+                <TypingEffectButton />
+              </span>
+            </h2>
             <p className="banner_discription">
               I'm a software engineer specializing in scalable web apps. Explore
               my blog, project portfolio and online resume.
@@ -186,12 +209,14 @@ class About extends Component {
 
   skills() {
     return (
-      <div
-      className={`skills ${this.state.visibleSections.skills ? "show" : ""}`}
-      ref={this.sectionsRefs.skills}
-      data-section="skills"
-      >
-        <div className="skills_block">
+      <div className="skills">
+        <div
+          className={`skills_block_1 ${
+            this.state.visibleSections.skills_block_1 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_1}
+          data-section="skills_block_1"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
           <p className="skills_block_text">
@@ -201,7 +226,13 @@ class About extends Component {
             <br /> Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_2 ${
+            this.state.visibleSections.skills_block_2 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_2}
+          data-section="skills_block_2"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Angular, React & Vue</h4>
           <p className="skills_block_text">
@@ -209,7 +240,13 @@ class About extends Component {
             HTML5, Sass, and Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_3 ${
+            this.state.visibleSections.skills_block_3 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_3}
+          data-section="skills_block_3"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Node.js</h4>
           <p className="skills_block_text">
@@ -217,7 +254,13 @@ class About extends Component {
             HTML5, Sass, and Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_4 ${
+            this.state.visibleSections.skills_block_4 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_4}
+          data-section="skills_block_4"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Python & Django</h4>
           <p className="skills_block_text">
@@ -225,7 +268,13 @@ class About extends Component {
             HTML5, Sass, and Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_5 ${
+            this.state.visibleSections.skills_block_5 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_5}
+          data-section="skills_block_5"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
           <p className="skills_block_text">
@@ -235,7 +284,13 @@ class About extends Component {
             <br /> Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_6 ${
+            this.state.visibleSections.skills_block_6 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_6}
+          data-section="skills_block_6"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
           <p className="skills_block_text">
@@ -245,7 +300,13 @@ class About extends Component {
             <br /> Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_7 ${
+            this.state.visibleSections.skills_block_7 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_7}
+          data-section="skills_block_7"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
           <p className="skills_block_text">
@@ -255,7 +316,13 @@ class About extends Component {
             <br /> Bootstrap 5.
           </p>
         </div>
-        <div className="skills_block">
+        <div
+          className={`skills_block_8 ${
+            this.state.visibleSections.skills_block_8 ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.skills_block_8}
+          data-section="skills_block_8"
+        >
           <img className="skills_block_img" src={imageJS} />
           <h4 className="skills_block_title">Vanilla JavaScript</h4>
           <p className="skills_block_text">

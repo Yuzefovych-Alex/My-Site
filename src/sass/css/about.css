@@ -191,20 +191,35 @@
     margin-left: 8%;
     gap: 1.5rem;
     margin-top: 5rem;
+}
+
+.skills_block_1,
+.skills_block_2,
+.skills_block_3,
+.skills_block_4,
+.skills_block_5,
+.skills_block_6,
+.skills_block_7,
+.skills_block_8 {
+    background-color: #4f4f4f;
+    padding: 2.3rem;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.skills.show{
+.skills_block_1.show,
+.skills_block_2.show,
+.skills_block_3.show,
+.skills_block_4.show,
+.skills_block_5.show,
+.skills_block_6.show,
+.skills_block_7.show,
+.skills_block_8.show  {
     opacity: 1;
     transform: translateY(0);
 }
 
-.skills_block {
-    background-color: #4f4f4f;
-    padding: 2.3rem;
-}
 
 .skills_block_title {
     font-size: 1.4rem;

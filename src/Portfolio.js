@@ -30,7 +30,7 @@ class Portfolio extends Component {
         });
         this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     Object.entries(this.sectionsRefs).forEach(([key, ref]) => {

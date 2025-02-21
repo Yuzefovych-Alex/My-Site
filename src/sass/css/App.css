@@ -99,5 +99,11 @@
         margin-right: 2%;
     }
 
+}
 
+@media (max-width: 410px){
+    .page_block_title{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
 }

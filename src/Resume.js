@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import { saveAs } from "file-saver";
 import "./sass/css/resume.css";
+import myPhoto from "./images/my-photo.jpg";
 
 class Resume extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Resume extends Component {
         });
         this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     Object.entries(this.sectionsRefs).forEach(([key, ref]) => {
@@ -108,7 +109,8 @@ class Resume extends Component {
           <div className="resume_data_header_myData">
             <nav className="resume_data_header_myData_navigation">
               <div className="resume_data_header_myData_navigation_item">
-                <svg className="resume_data_header_myData_navigation_item_svg"
+                <svg
+                  className="resume_data_header_myData_navigation_item_svg"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -122,7 +124,8 @@ class Resume extends Component {
                 0123 4567 890
               </div>
               <div className="resume_data_header_myData_navigation_item">
-                <svg className="resume_data_header_myData_navigation_item_svg"
+                <svg
+                  className="resume_data_header_myData_navigation_item_svg"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -136,7 +139,8 @@ class Resume extends Component {
                 Evans@yourwebsite.com
               </div>
               <div className="resume_data_header_myData_navigation_item">
-                <svg className="resume_data_header_myData_navigation_item_svg"
+                <svg
+                  className="resume_data_header_myData_navigation_item_svg"
                   stroke="currentColor"
                   fill="currentColor"
                   stroke-width="0"
@@ -154,12 +158,19 @@ class Resume extends Component {
         </div>
         <div className="resume_data_section"></div>
         <div className="resume_data_pdf">
-          <img className="resume_data_pdf_img" />
+          <div className="resume_data_pdf_rounding">
+            <img className="resume_data_pdf_rouding_img" src={myPhoto} />
+          </div>
         </div>
         <div className="resume_data_section"></div>
         <div className="resume_data_experiencesSkills">
           <div className="resume_data_experiencesSkills_experiences">
-            <h2 className="resume_data_experiencesSkills_title">Work Experiences</h2>
+            <h2 className="resume_data_experiencesSkills_title">
+              Work Experiences
+            </h2>
+            <div className="resume_data_experiencesSkills_text">
+
+            </div>
           </div>
           <div className="resume_data_experiencesSkills_skils">
             <h2 className="resume_data_experiencesSkills_title">Skills</h2>
