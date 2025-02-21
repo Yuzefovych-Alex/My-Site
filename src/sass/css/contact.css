@@ -13,14 +13,6 @@
 .details {
     margin-top: 2rem;
     margin-left: 10%;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.details.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .details_text {
@@ -63,6 +55,18 @@
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+.details_data{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.details_data.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .maps {
     margin-top: 5rem;
@@ -147,7 +151,18 @@
         padding-top: 0.6rem;
         padding-bottom: 0.6rem;
         margin-bottom: 0.7rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
+    
+    .details_phone.show,
+    .details_location.show,
+    .details_email.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
 
     .maps {
         margin-top: 2rem;

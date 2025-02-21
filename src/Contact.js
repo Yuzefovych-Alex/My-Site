@@ -11,29 +11,43 @@ class Contact extends Component {
     this.sectionsRefs = {
       page_block: createRef(),
       contaсt_nav_socialMedia: createRef(),
-      details: createRef(),
+      details_data: createRef(),
+      details_phone: createRef(),
+      details_location: createRef(),
+      details_email: createRef(),
       maps: createRef(),
     };
   }
 
   componentDidMount() {
-    const observer = new IntersectionObserver(
+    this.observer = new IntersectionObserver(
       (entries) => {
         const newVisibility = { ...this.state.visibleSections };
-
         entries.forEach((entry) => {
           const section = entry.target.dataset.section;
-          newVisibility[section] = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            newVisibility[section] = true;
+          } else {
+            newVisibility[section] = false;
+          }
         });
-
         this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
-    Object.values(this.sectionsRefs).forEach((ref) => {
-      if (ref.current) observer.observe(ref.current);
+    Object.entries(this.sectionsRefs).forEach(([key, ref]) => {
+      if (ref.current) {
+        ref.current.dataset.section = key;
+        this.observer.observe(ref.current);
+      }
     });
+  }
+
+  componentWillUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   headerPage() {
@@ -186,21 +200,29 @@ class Contact extends Component {
 
   myDataDetails() {
     return (
-      <dir
-        className={`details ${
-          this.state.visibleSections.details ? "show" : ""
-        }`}
-        ref={this.sectionsRefs.details}
-        data-section="details"
-      >
-        <h2 className="details_title">Contact Details</h2>
-        <p className="details_text">
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything <br />
-          embarrassing hidden in the middle of text.
-        </p>
+      <dir className="details">
+        <div
+          className={`details_data ${
+            this.state.visibleSections.details_data ? "show" : ""
+          }`}
+          ref={this.sectionsRefs.details_data}
+          data-section="details_data"
+        >
+          <h2 className="details_title">Contact Details</h2>
+          <p className="details_text">
+            If you are going to use a passage of Lorem Ipsum, you need to be
+            sure there isn't anything <br />
+            embarrassing hidden in the middle of text.
+          </p>
+        </div>
         <nav className="details_navigation">
-          <div className="details_phone">
+          <div
+            className={`details_phone ${
+              this.state.visibleSections.details_phone ? "show" : ""
+            }`}
+            ref={this.sectionsRefs.details_phone}
+            data-section="details_phone"
+          >
             <svg
               className="details_navigation_svg"
               stroke="#5271ff"
@@ -218,7 +240,13 @@ class Contact extends Component {
               <p className="details_navigation_text">+421 952 170 295</p>
             </div>
           </div>
-          <div className="details_location">
+          <div
+            className={`details_location ${
+              this.state.visibleSections.details_location ? "show" : ""
+            }`}
+            ref={this.sectionsRefs.details_location}
+            data-section="details_location"
+          >
             <svg
               className="details_navigation_svg"
               stroke="#5271ff"
@@ -236,7 +264,13 @@ class Contact extends Component {
               <p className="details_navigation_text">Slovakia, Kosice</p>
             </div>
           </div>
-          <div className="details_email">
+          <div
+            className={`details_email ${
+              this.state.visibleSections.details_email ? "show" : ""
+            }`}
+            ref={this.sectionsRefs.details_email}
+            data-section="details_email"
+          >
             <svg
               className="details_navigation_svg"
               stroke="#5271ff"

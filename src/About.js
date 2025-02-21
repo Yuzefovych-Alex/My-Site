@@ -50,22 +50,27 @@ class About extends Component {
   }
 
   componentDidMount() {
-    const observer = new IntersectionObserver(
+    this.observer = new IntersectionObserver(
       (entries) => {
         const newVisibility = { ...this.state.visibleSections };
-
         entries.forEach((entry) => {
           const section = entry.target.dataset.section;
-          newVisibility[section] = entry.isIntersecting; 
+          if (entry.isIntersecting) {
+            newVisibility[section] = true;
+          } else {
+            newVisibility[section] = false;
+          }
         });
-
         this.setState({ visibleSections: newVisibility });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
-    Object.values(this.sectionsRefs).forEach((ref) => {
-      if (ref.current) observer.observe(ref.current);
+    Object.entries(this.sectionsRefs).forEach(([key, ref]) => {
+      if (ref.current) {
+        ref.current.dataset.section = key;
+        this.observer.observe(ref.current);
+      }
     });
   }
 

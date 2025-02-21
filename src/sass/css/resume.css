@@ -88,3 +88,20 @@
   padding-left: 0.5rem;
   border-left: solid 3px #5271ff;
 }
+
+.resume_data_header_myData_navigation{
+  padding-left: 1rem;
+  border-left: solid 1px white;
+  margin-left: 70%;
+}
+
+.resume_data_header_myData_navigation_item{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume_data_header_myData_navigation_item_svg{
+  position: relative;
+  top: 0.1rem;
+  margin-right: 0.7rem;  
+}
