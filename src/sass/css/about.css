@@ -221,7 +221,14 @@
 }
 
 
+.skills_block_img {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+}
+
 .skills_block_title {
+    display: flex;;
     font-size: 1.4rem;
     font-weight: 500;
     margin-top: 1rem;
