@@ -235,6 +235,6 @@
 
 @media (max-width: 404px){
 .mainBlock {
-    margin-left: 0%;
+    margin-left: 0%;/**/
   }
 }
