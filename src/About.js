@@ -2,7 +2,7 @@ import React, { Component, createRef, useState, useEffect } from 'react'
 import './sass/css/about.css'
 import { Link } from 'react-router-dom'
 import imageResume from './images/resume-icon.webp'
-import imageMy from './images/my-photo.jpg'
+//import imageMy from './images/my-photo.jpg'
 import imageJS from './images/js.png'
 import imageTY from './images/typescript.png'
 import imageHTML from './images/html-5.png'
@@ -10,6 +10,8 @@ import imageCSS from './images/css-3.png'
 import imageNode from './images/programing.png'
 import imageReact from './images/physics.png'
 import imageAngular from './images/angular.png'
+import imageNext from './images/nextjs.png'
+import imageMy from './images/my-image.jpg'
 
 function TypingEffectButton() {
   const words = ['#Developer', '#Engineer']
@@ -146,7 +148,9 @@ class About extends Component {
         </div>
         <div className="structure_content_img_box">
           <div className="structure_content_box"></div>
-          <img className="structure_content_img" src={imageMy} />
+          <div className="structure_content_img">
+            <img src={imageMy} className='structure_content_img_img'/>
+          </div>
         </div>
       </div>
     )
@@ -157,7 +161,7 @@ class About extends Component {
       <div className="statistics">
         <div className="statistics_data">
           <h2 className="statistics_data_title">
-            <span>5</span>
+            <span>4</span>
           </h2>
           <span className="statistics_data_text">
             Years of
@@ -167,7 +171,7 @@ class About extends Component {
 
         <div className="statistics_data">
           <h2 className="statistics_data_title">
-            <span>110</span>
+            <span>12</span>
           </h2>
           <span className="statistics_data_text">
             Projects <br /> Completed
@@ -176,7 +180,7 @@ class About extends Component {
 
         <div className="statistics_data">
           <h2 className="statistics_data_title">
-            <span>6k</span>
+            <span>25</span>
           </h2>
           <span className="statistics_data_text">
             Clients
@@ -199,12 +203,18 @@ class About extends Component {
           <h2>What I do</h2>
         </div>
         <p className="knowledge_text">
-          I have more than 10 years experience building software for clients all
-          over the world. Below is a <br />
-          quick overview of my main technical skill sets and technologies I use.
-          Want to find out more
-          <br /> about my experience? Check out my online resume and project
-          portfolio.
+          I am a skilled full-stack developer with over 4 years of experience in
+          creating scalable and high-performance web and mobile applications. I
+          specialize in both front-end and back-end development, utilizing a
+          broad range of modern technologies. My expertise includes JavaScript,
+          Python, and frameworks such as Node.js, Express.js, React, React
+          Native, and Angular. I also have strong knowledge of Docker,
+          WebSockets, gRPC, and API technologies (REST, GraphQL). I am
+          proficient in developing Progressive Web Apps (PWAs) and implementing
+          CI/CD pipelines using GitHub Actions, GitLab CI/CD, and Jenkins.
+          Additionally, I have extensive experience working with MySQL and
+          PostgreSQL databases, ensuring efficient data management and smooth
+          application performance.
         </p>
         <nav></nav>
       </div>
@@ -285,7 +295,7 @@ class About extends Component {
           }`}
           ref={this.sectionsRefs.skills_block_6}
           data-section="skills_block_6">
-          <img className="skills_block_img" src={imageJS} />
+          <img className="skills_block_img" src={imageNext} />
           <h4 className="skills_block_title">Next.js</h4>
           <p className="skills_block_text">
             Server-side rendering (SSR), static site generation (SSG), and

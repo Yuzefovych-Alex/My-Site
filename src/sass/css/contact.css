@@ -10,6 +10,29 @@
     padding-left: 1rem;
 }
 
+.nav_socialMedia_link_img1{
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.nav_socialMedia_link_img2{
+    width: 1.1rem;
+    height: 1.1rem;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.nav_socialMedia_edging:hover .nav_socialMedia_link_img1{
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.nav_socialMedia_edging:hover .nav_socialMedia_link_img2{
+    display: inline;
+    transition: all 0.3s ease;
+}
+
 .details {
     margin-top: 2rem;
     margin-left: 10%;
@@ -135,6 +158,12 @@
     transform: translateY(0);
 }
 
+
+.nav_socialMedia_link_svg_castom{
+    width: 1.1rem;
+    height: 1.1rem;
+    color: green;
+}
 
 @media (max-width: 512px) {
     .details {

@@ -33,7 +33,14 @@
     width: 18rem;
     height: 24rem;
     position: relative;
+    overflow: hidden;
     z-index: 1;
+}
+
+.structure_content_img_img{
+    height: 24rem;
+    position: relative;
+    right: 3rem;  
 }
 
 .banner_text {
@@ -434,6 +441,7 @@
     .structure_content_img {
         width: 15rem;
         height: 20rem;
+        overflow: hidden;
     }
 
     .knowledge {

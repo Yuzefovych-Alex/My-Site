@@ -42,11 +42,11 @@ class Resume extends Component {
   }
 
   handleDownload() {
-    const fileUrl = `${window.location.origin}/My-Site/pdf/CV1_Yuzefovych_Oleksandr.pdf`;
+    const fileUrl = `${window.location.origin}/My-Site/pdf/CV_Yuzefovych_Oleksandr.pdf`;
 
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.setAttribute("download", "CV1_Yuzefovych_Oleksandr.pdf");
+    link.setAttribute("download", "CV_Yuzefovych_Oleksandr.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
