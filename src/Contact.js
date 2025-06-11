@@ -65,7 +65,7 @@ class Contact extends Component {
           Interested in hiring me for your project or just want to say hi? You
           can fill in the contact form below or send me
           <br />
-          an email to evans@yourwebsite.com .Want to get connected? Follow me on
+          an email to yuzefovych.alex@gmail.com .Want to get connected? Follow me on
           the social channels below.
         </p>
       </div>
