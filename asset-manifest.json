@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/My-Site/static/css/main.7a969b3d.css",
-    "main.js": "/My-Site/static/js/main.e1890fa7.js",
+    "main.js": "/My-Site/static/js/main.b6101b85.js",
     "static/js/453.ed3810f9.chunk.js": "/My-Site/static/js/453.ed3810f9.chunk.js",
     "static/media/ChatGPT Image 9 июн. 2025 г., 14_44_24 (1).png": "/My-Site/static/media/ChatGPT Image 9 июн. 2025 г., 14_44_24 (1).f1ebfb7abf8019df7c26.png",
     "static/media/my-photo.jpg": "/My-Site/static/media/my-photo.1a65041d9563057b1c74.jpg",
@@ -17,11 +17,11 @@
     "index.html": "/My-Site/index.html",
     "static/media/resume-icon.webp": "/My-Site/static/media/resume-icon.b935748b64947417dad2.webp",
     "main.7a969b3d.css.map": "/My-Site/static/css/main.7a969b3d.css.map",
-    "main.e1890fa7.js.map": "/My-Site/static/js/main.e1890fa7.js.map",
+    "main.b6101b85.js.map": "/My-Site/static/js/main.b6101b85.js.map",
     "453.ed3810f9.chunk.js.map": "/My-Site/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7a969b3d.css",
-    "static/js/main.e1890fa7.js"
+    "static/js/main.b6101b85.js"
   ]
 }
