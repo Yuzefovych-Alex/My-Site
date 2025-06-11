@@ -46,7 +46,7 @@ ul{
 
 header{
   grid-area: header;
-  /*position: fixed;*/
+
 }
 
 main{
